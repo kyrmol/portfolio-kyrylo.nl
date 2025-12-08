@@ -84,8 +84,8 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Kyrylo is an Arnhem-based software developer intern focused on building practical web
-        applications with .NET and modern frontend technologies. He enjoys solving real-world
+        Software developer focused on building practical web
+        applications with modern technologies. Enjoy solving real-world
         problems by combining backend services and clear user interfaces.
       </>
     ),
@@ -144,8 +144,8 @@ const about: About = {
           { name: "JavaScript", icon: "javascript" },
           { name: "TypeScript", icon: "typescript" },
           { name: "Next.js", icon: "nextjs" },
-          { name: "Django", icon: "django" },
-          { name: "FastAPI", icon: "fastapi" },
+          { name: "Django" },
+          { name: "FastAPI" },
           { name: "ASP.NET Core", icon: "dotnet" },
         ],
         images: [],
