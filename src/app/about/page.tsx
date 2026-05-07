@@ -107,6 +107,15 @@ export default function About() {
                 ))}
               </Row>
             )}
+            <Button
+              href="/Kyrylo_Moloshnikov_CV.pdf"
+              download
+              prefixIcon="download"
+              label="Download CV"
+              size="s"
+              variant="secondary"
+              fillWidth
+            />
           </Column>
         )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
@@ -147,8 +156,8 @@ export default function About() {
             </Heading>
             <Text
               className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
+              variant="heading-default-l"
+              onBackground="brand-weak"
             >
               {person.role}
             </Text>

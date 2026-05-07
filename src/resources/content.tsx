@@ -5,11 +5,11 @@ const person: Person = {
   firstName: "Kyrylo",
   lastName: "Moloshnikov",
   name: `Kyrylo Moloshnikov`,
-  role: "Software Developer ",
+  role: "DevSecOps Intern · Aspiring Cloud Security Engineer",
   avatar: "/images/avatar6.jpg",
-  email: "kyrmol@outlook.com", // email not provided
+  email: "kyrmol@outlook.com",
   location: "Europe/Amsterdam", // IANA timezone for Arnhem, Netherlands
-  languages: ["English", "Dutch"],
+  languages: ["English", "Dutch", "Ukrainian"],
 };
 
 const newsletter: Newsletter = {
@@ -40,25 +40,16 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing work in web and .NET development`,
-  headline: <>Building practical web solutions with .NET and modern web tech</>,
+  headline: <>Building secure software — from web applications to DevSecOps pipelines</>,
   featured: {
-    display: true,
-    title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
-        </Text>
-      </Row>
-    ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    display: false,
+    title: <></>,
+    href: "",
   },
   subline: (
     <>
-      Skilled in HTML, CSS, JavaScript, TypeScript and C#. Experienced building web
-      applications using ASP.NET Core, Blazor and Entity Framework. Looking to apply
-      technical skills and passion for problem-solving in a development team.
+      Interning at RiskStudio — securing CI/CD pipelines with SAST, SCA, and IaC scanning.
+      Building full-stack apps with Next.js and Django. Aiming for Cloud Security Engineering.
     </>
   ),
 };
@@ -76,7 +67,7 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -84,9 +75,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Software developer focused on building practical web
-        applications with modern technologies. Enjoy solving real-world
-        problems by combining backend services and clear user interfaces.
+        Software developer with a growing focus on DevSecOps and Cloud Security. Currently
+        interning at RiskStudio, where I work on integrating AI-assisted security tooling
+        into CI/CD pipelines and building full-stack features with Next.js and Django.
+        My goal is to transition into Cloud Security Engineering — combining development
+        experience with a security-first mindset.
       </>
     ),
   },
@@ -95,8 +88,28 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
+        company: "RiskStudio",
+        timeframe: "Feb 2026 – Present",
+        role: "Software Developer (DevSecOps) Graduate Intern",
+        achievements: [
+          <>
+            Researching and implementing AI-assisted security controls in the GitLab CI/CD
+            pipeline: SAST, SCA, Infrastructure-as-Code scanning and secret detection.
+          </>,
+          <>
+            Exploring how Generative AI and LLM integrations can support automated policy
+            detection, security troubleshooting and pattern recognition.
+          </>,
+          <>
+            Developing frontend features with Next.js and building backend services using
+            Python and Django on a SaaS cybersecurity & supply chain risk management platform.
+          </>,
+        ],
+        images: [],
+      },
+      {
         company: "ICT@Work",
-        timeframe: "2024 - 2025",
+        timeframe: "Sep 2024 – Feb 2025",
         role: "Software Developer Intern",
         achievements: [
           <>
@@ -121,12 +134,20 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "ROC A12",
-        description: <>Software Engineering / Development — Arnhem Regio, Netherlands (2026)</>,
+        name: "HU University of Applied Sciences Utrecht",
+        description: (
+          <>
+            Bachelor of Applied Science — Computer Science (HBO-ICT: Cloud & Cyber Security)
+          </>
+        ),
       },
       {
-        name: "Harvard University",
-        description: <>CS50: Introduction to Computer Science</>,
+        name: "Astrum College",
+        description: (
+          <>
+            Secondary Vocational Education (MBO-4) — Software Development, 2023–2026
+          </>
+        ),
       },
     ],
   },
@@ -135,29 +156,31 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Languages & Frameworks",
-        // description intentionally left empty to display only labels/tags
+        title: "DevSecOps & Security",
         description: <></>,
         tags: [
-          { name: "Python", icon: "python" },
-          { name: "C#", icon: "csharp" },
-          { name: "JavaScript", icon: "javascript" },
-          { name: "TypeScript", icon: "typescript" },
-          { name: "Next.js", icon: "nextjs" },
-          { name: "Django" },
-          { name: "FastAPI" },
-          { name: "ASP.NET Core", icon: "dotnet" },
+          { name: "SAST" },
+          { name: "SCA" },
+          { name: "IaC Scanning" },
+          { name: "Secret Detection" },
+          { name: "GitLab CI/CD" },
+          { name: "Docker", icon: "docker" },
+          { name: "Security" },
         ],
         images: [],
       },
       {
-        title: "Frontend & UI",
+        title: "Languages & Frameworks",
         description: <></>,
         tags: [
-          { name: "React", icon: "react" },
-          { name: "Next.js", icon: "nextjs" },
-          { name: "Bootstrap", icon: "bootstrap" },
+          { name: "Python", icon: "python" },
+          { name: "Django" },
+          { name: "C#", icon: "csharp" },
+          { name: "ASP.NET Core", icon: "dotnet" },
+          { name: "JavaScript", icon: "javascript" },
           { name: "TypeScript", icon: "typescript" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "React", icon: "react" },
         ],
         images: [],
       },
@@ -169,7 +192,7 @@ const about: About = {
           { name: "Microsoft SQL Server", icon: "mssql" },
           { name: "Entity Framework", icon: "entityframework" },
           { name: "Git", icon: "git" },
-          { name: "Docker", icon: "docker" },
+          { name: "Infrastructure" },
         ],
         images: [],
       },

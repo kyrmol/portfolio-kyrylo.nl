@@ -5,16 +5,15 @@ import {
   Avatar,
   RevealFx,
   Column,
-  Badge,
   Row,
   Schema,
   Meta,
+  Tag,
+  Icon,
+  IconButton,
   Line,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+import { home, about, person, social, baseURL } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -27,8 +26,12 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  const featuredSkills = about.technical.skills
+    .flatMap((s) => s.tags ?? [])
+    .slice(0, 12);
+
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="m" fillWidth horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -43,44 +46,139 @@ export default function Home() {
         }}
       />
 
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              Software Developer
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              Focused on Python and Next.js — building reliable backends and modern web
-              frontends.
+      {/* Hero */}
+      <Column fillWidth horizontal="center" gap="24" paddingY="104">
+        {/* Avatar */}
+        <RevealFx translateY="4" delay={0} horizontal="center">
+          <Avatar src={person.avatar} size="xl" />
+        </RevealFx>
+
+        {/* Open to work pill */}
+        <RevealFx translateY="4" delay={0.1} horizontal="center">
+          <Row
+            gap="8"
+            vertical="center"
+            padding="4"
+            paddingX="12"
+            border="brand-alpha-medium"
+            background="brand-alpha-weak"
+            radius="full"
+            style={{ backdropFilter: "blur(var(--static-space-1))" }}
+          >
+            <Row
+              width="8"
+              height="8"
+              radius="full"
+              background="brand-strong"
+            />
+            <Text variant="label-default-s" onBackground="brand-medium">
+              Open to opportunities
             </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+          </Row>
+        </RevealFx>
+
+        {/* Name */}
+        <RevealFx translateY="4" delay={0.15} fillWidth horizontal="center">
+          <Heading align="center" variant="display-strong-xl" wrap="balance">
+            Hi, I'm {person.firstName}
+          </Heading>
+        </RevealFx>
+
+        {/* Role */}
+        <RevealFx translateY="4" delay={0.2} fillWidth horizontal="center">
+          <Text
+            align="center"
+            variant="heading-default-m"
+            onBackground="neutral-weak"
+          >
+            {person.role}
+          </Text>
+        </RevealFx>
+
+        {/* Location */}
+        <RevealFx delay={0.25} horizontal="center">
+          <Row gap="8" vertical="center">
+            <Icon name="globe" onBackground="neutral-weak" />
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              Arnhem, Netherlands
+            </Text>
+          </Row>
+        </RevealFx>
+
+        {/* Tagline */}
+        <RevealFx translateY="8" delay={0.3} fillWidth horizontal="center">
+          <Column maxWidth="s" horizontal="center">
+            <Text
+              align="center"
+              variant="body-default-l"
+              onBackground="neutral-weak"
+              wrap="balance"
+            >
+              {home.subline}
+            </Text>
+          </Column>
+        </RevealFx>
+
+        {/* CTAs */}
+        <RevealFx delay={0.4} horizontal="center">
+          <Row gap="12" horizontal="center" wrap>
+            <Button href={about.path} variant="primary" size="m" arrowIcon>
+              About me
+            </Button>
             <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
+              href="/Kyrylo_Moloshnikov_CV.pdf"
+              download
+              prefixIcon="download"
               variant="secondary"
               size="m"
-              weight="default"
-              arrowIcon
             >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Row>
+              Download CV
             </Button>
-          </RevealFx>
-        </Column>
+          </Row>
+        </RevealFx>
+
+        {/* Social icons */}
+        <RevealFx delay={0.5} horizontal="center">
+          <Row gap="8" horizontal="center">
+            {social
+              .filter((item) => item.link)
+              .map((item) => (
+                <IconButton
+                  key={item.name}
+                  href={item.link}
+                  icon={item.icon}
+                  tooltip={item.name}
+                  variant="ghost"
+                  size="l"
+                />
+              ))}
+          </Row>
+        </RevealFx>
       </Column>
+
+      {/* Tech stack section */}
+      <RevealFx translateY="8" delay={0.6} fillWidth>
+        <Column fillWidth gap="20" paddingBottom="80">
+          <Row fillWidth vertical="center" gap="16">
+            <Line background="neutral-alpha-weak" />
+            <Text
+              variant="label-default-s"
+              onBackground="neutral-weak"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              TECH STACK
+            </Text>
+            <Line background="neutral-alpha-weak" />
+          </Row>
+          <Row wrap gap="8" horizontal="center">
+            {featuredSkills.map((tag, i) => (
+              <Tag key={i} size="l" prefixIcon={tag.icon}>
+                {tag.name}
+              </Tag>
+            ))}
+          </Row>
+        </Column>
+      </RevealFx>
     </Column>
   );
 }
