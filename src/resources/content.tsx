@@ -48,8 +48,9 @@ const home: Home = {
   },
   subline: (
     <>
-      Interning at RiskStudio — securing CI/CD pipelines with SAST, SCA, and IaC scanning.
-      Building full-stack apps with Next.js and Django. Aiming for Cloud Security Engineering.
+      Currently applying at SUE B.V. while interning at RiskStudio — securing CI/CD
+      pipelines with SAST, SCA, and IaC scanning. Building full-stack apps with Next.js
+      and Django, aiming for Cloud Security Engineering.
     </>
   ),
 };
