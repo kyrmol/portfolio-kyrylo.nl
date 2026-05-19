@@ -134,7 +134,7 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "HU University of Applied Sciences Utrecht",
+        name: "HAN University of Applied Sciences",
         description: (
           <>
             Bachelor of Applied Science — Computer Science (HBO-ICT: Cloud & Cyber Security)
