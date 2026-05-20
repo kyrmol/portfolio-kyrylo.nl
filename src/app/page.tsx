@@ -164,22 +164,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.statusStrip} aria-label="Current focus">
-        <div className={styles.statusCell}>
-          <span>Current project</span>
-          <strong>AI triage for security scanners</strong>
-          <p>RiskStudio CI/CD component that reviews scanner findings with company context.</p>
+      <section className={styles.latestProjects} aria-label="Latest projects">
+        <div className={styles.latestIntro}>
+          <span>Latest projects</span>
+          <strong>Take a look at my latest projects</strong>
         </div>
-        <div className={styles.statusCell}>
-          <span>Focus</span>
-          <strong>Secure DevOps pipelines</strong>
-          <p>Reduce false positives, keep release gates useful, protect company secrets.</p>
-        </div>
-        <div className={styles.statusCell}>
-          <span>Next step</span>
-          <strong>AWS + cloud security</strong>
-          <p>Building cloud architecture knowledge while growing toward security work.</p>
-        </div>
+        <a className={styles.projectLink} href="/work/cicd-pipeline-automation">
+          <span>RiskStudio</span>
+          <strong>AI Security Triage Pipeline</strong>
+          <p>AI-assisted scanner triage inside GitLab CI/CD.</p>
+        </a>
+        <a className={styles.projectLink} href="/work/stichting-proconnect">
+          <span>Stichting ProConnect</span>
+          <strong>Public Website</strong>
+          <p>Next.js website deployed with AWS Amplify.</p>
+        </a>
       </section>
 
       <section className={styles.techCarousel} aria-label="Tech stack">

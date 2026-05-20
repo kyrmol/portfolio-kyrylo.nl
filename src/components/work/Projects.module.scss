@@ -1,17 +1,31 @@
-.hover {
-    transition: var(--transition-micro-medium);
-
-    &:hover {
-        transform: translateX(var(--static-space-8));
-
-        .indicator {
-            transform: rotate(0);
-        }
-    }
+.workShell {
+    width: 100%;
+    padding-top: var(--static-space-24);
 }
 
-.indicator {
-    transform: rotate(-90deg);
-    left: -2rem;
-    transition: var(--transition-micro-medium);
+.workHeader {
+    display: grid;
+    gap: var(--static-space-8);
+    width: 100%;
+    margin-bottom: var(--static-space-16);
+    padding: var(--static-space-24);
+    border: 1px solid var(--neutral-alpha-medium);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 40%),
+        var(--surface-background);
+}
+
+.projectsList {
+    gap: var(--static-space-8);
+    margin-bottom: var(--static-space-40);
+}
+
+@media (max-width: 560px) {
+    .workShell {
+        padding-top: var(--static-space-16);
+    }
+
+    .workHeader {
+        padding: var(--static-space-16);
+    }
 }

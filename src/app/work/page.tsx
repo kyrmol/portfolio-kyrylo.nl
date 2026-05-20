@@ -1,6 +1,7 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+import styles from "@/components/work/Projects.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -14,7 +15,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <Column className={styles.workShell} maxWidth="l">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -28,9 +29,15 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
+      <header className={styles.workHeader}>
+        <Text variant="label-default-s" onBackground="brand-medium">
+          SELECTED WORK
+        </Text>
+        <Heading variant="display-strong-s">{work.title}</Heading>
+        <Text variant="body-default-m" onBackground="neutral-weak">
+          Practical projects across DevOps, cloud, secure delivery and software development.
+        </Text>
+      </header>
       <Projects
         exclude={[
           "automate-design-handovers-with-a-figma-to-code-pipeline",

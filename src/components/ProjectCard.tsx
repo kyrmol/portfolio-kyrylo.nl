@@ -1,14 +1,7 @@
 "use client";
 
-import {
-  AvatarGroup,
-  Carousel,
-  Column,
-  Flex,
-  Heading,
-  SmartLink,
-  Text,
-} from "@once-ui-system/core";
+import { AvatarGroup, Column, Flex, Heading, Media, SmartLink, Text } from "@once-ui-system/core";
+import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   href: string;
@@ -31,28 +24,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
+  const image = images[0];
+
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        priority={priority}
-        aspectRatio="16 / 9"
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
-      <Flex
-        s={{ direction: "column" }}
-        fillWidth
-        paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
-      >
+    <Column className={styles.card} fillWidth>
+      {image && (
+        <Media
+          className={styles.media}
+          priority={priority}
+          aspectRatio="16 / 9"
+          sizes="(max-width: 960px) 100vw, 360px"
+          src={image}
+          alt={title}
+          radius="s"
+        />
+      )}
+      <Flex className={styles.content} s={{ direction: "column" }} fillWidth gap="m">
         {title && (
           <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
+            <Heading as="h2" wrap="balance" variant="heading-strong-l">
               {title}
             </Heading>
           </Flex>
@@ -65,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 {description}
               </Text>
             )}
-            <Flex gap="24" wrap>
+            <Flex gap="16" wrap>
               {content?.trim() && (
                 <SmartLink
                   suffixIcon="arrowRight"
