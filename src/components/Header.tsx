@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, IconButton, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Button, Fade, Flex, IconButton, Line, Row, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, social, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -187,22 +187,47 @@ export const Header = () => {
               {display.time && <TimeDisplay timeZone={person.location} />}
             </Flex>
             {social.find((i) => i.name === "LinkedIn")?.link && (
+              <>
+                <Row s={{ hide: true }}>
+                  <Button
+                    href={social.find((i) => i.name === "LinkedIn")!.link}
+                    prefixIcon="linkedin"
+                    label="LinkedIn"
+                    size="s"
+                    variant="secondary"
+                  />
+                </Row>
+                <Row hide s={{ hide: false }}>
+                  <IconButton
+                    href={social.find((i) => i.name === "LinkedIn")!.link}
+                    icon="linkedin"
+                    tooltip="LinkedIn"
+                    size="s"
+                    variant="ghost"
+                  />
+                </Row>
+              </>
+            )}
+            <Row s={{ hide: true }}>
+              <Button
+                href="/Kyrylo_Moloshnikov_CV.pdf"
+                download
+                prefixIcon="download"
+                label="Download CV"
+                size="s"
+                variant="secondary"
+              />
+            </Row>
+            <Row hide s={{ hide: false }}>
               <IconButton
-                href={social.find((i) => i.name === "LinkedIn")!.link}
-                icon="linkedin"
-                tooltip="LinkedIn"
+                href="/Kyrylo_Moloshnikov_CV.pdf"
+                download
+                icon="download"
+                tooltip="Download CV"
                 size="s"
                 variant="ghost"
               />
-            )}
-            <IconButton
-              href="/Kyrylo_Moloshnikov_CV.pdf"
-              download
-              icon="download"
-              tooltip="Download CV"
-              size="s"
-              variant="ghost"
-            />
+            </Row>
           </Flex>
         </Flex>
       </Row>
