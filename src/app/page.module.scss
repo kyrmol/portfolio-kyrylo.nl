@@ -246,7 +246,69 @@
 
 @media (max-width: 560px) {
   .heroBand {
-    margin-top: var(--static-space-24);
-    padding: var(--static-space-24);
+    grid-template-columns: 1fr;
+    min-height: 380px;
+    margin-top: 0;
+    padding: var(--static-space-16);
+    align-items: center;
+  }
+
+  .heroBand::before {
+    display: none;
+  }
+
+  .heroContent {
+    gap: var(--static-space-10);
+  }
+
+  .heroTitle {
+    font-size: 2.45rem !important;
+    line-height: 1 !important;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
+  .statusStrip {
+    grid-template-columns: 1fr;
+    gap: var(--static-space-4);
+    margin-top: var(--static-space-4);
+  }
+
+  .statusCell {
+    padding: var(--static-space-12);
+  }
+
+  .statusCell span {
+    margin-bottom: var(--static-space-4);
+    font-size: 0.68rem;
+  }
+
+  .statusCell strong {
+    font-size: 0.92rem;
+  }
+
+  .statusCell p {
+    margin-top: var(--static-space-4);
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .techCarousel {
+    display: block;
+    margin-top: var(--static-space-4);
+  }
+
+  .techTrack {
+    gap: var(--static-space-8);
+    padding: var(--static-space-4);
+    animation-duration: 34s;
+  }
+
+  .techItem {
+    min-height: 1.85rem;
+    padding: 0 var(--static-space-8);
+    font-size: 0.82rem;
   }
 }
