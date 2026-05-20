@@ -12,6 +12,7 @@ import {
   IconButton,
 } from "@once-ui-system/core";
 import { home, about, person, social, baseURL } from "@/resources";
+import { getPosts } from "@/utils/utils";
 import styles from "./page.module.scss";
 
 export async function generateMetadata() {
@@ -31,6 +32,11 @@ export default function Home() {
       about.technical.skills.flatMap((s) => s.tags ?? []).map((tag) => [tag.name, tag]),
     ).values(),
   );
+
+  const featuredSlugs = ["cicd-pipeline-automation", "stichting-proconnect"];
+  const latestProjects = getPosts(["src", "app", "work", "projects"])
+    .filter((p) => featuredSlugs.includes(p.slug))
+    .sort((a, b) => featuredSlugs.indexOf(a.slug) - featuredSlugs.indexOf(b.slug));
 
   return (
     <Column maxWidth="l" fillWidth horizontal="start">
@@ -169,16 +175,12 @@ export default function Home() {
           <span>Latest projects</span>
           <strong>Take a look at my latest projects</strong>
         </div>
-        <a className={styles.projectLink} href="/work/cicd-pipeline-automation">
-          <span>RiskStudio</span>
-          <strong>AI Security Triage Pipeline</strong>
-          <p>AI-assisted scanner triage inside GitLab CI/CD.</p>
-        </a>
-        <a className={styles.projectLink} href="/work/stichting-proconnect">
-          <span>Stichting ProConnect</span>
-          <strong>Public Website</strong>
-          <p>Next.js website deployed with AWS Amplify.</p>
-        </a>
+        {latestProjects.map((project) => (
+          <a key={project.slug} className={styles.projectLink} href={`/work/${project.slug}`}>
+            <span>{project.metadata.title}</span>
+            <strong>{project.metadata.summary}</strong>
+          </a>
+        ))}
       </section>
 
       <section className={styles.techCarousel} aria-label="Tech stack">
