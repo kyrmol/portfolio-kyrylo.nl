@@ -17,7 +17,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash, CustomMDX } from "@/components";
+import { ScrollToHash, CustomMDX, BackButton } from "@/components";
 import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
 
@@ -93,9 +93,7 @@ export default async function Project({
         }}
       />
       <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projects</Text>
-        </SmartLink>
+        <BackButton />
         <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
         </Text>

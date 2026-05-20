@@ -6,12 +6,37 @@ import styles from "./Projects.module.scss";
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  slugs?: string[];
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
+export function Projects({ range, exclude, slugs }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
-  // Exclude by slug (exact match)
+  if (slugs && slugs.length > 0) {
+    const slugSet = new Set(slugs);
+    const bySlug = Object.fromEntries(allProjects.map((p) => [p.slug, p]));
+    return (
+      <Column className={styles.projectsList} fillWidth>
+        {slugs.filter((s) => slugSet.has(s) && bySlug[s]).map((slug, index) => {
+          const post = bySlug[slug];
+          return (
+            <ProjectCard
+              priority={index < 2}
+              key={post.slug}
+              href={`/work/${post.slug}`}
+              images={post.metadata.images}
+              title={post.metadata.title}
+              description={post.metadata.summary}
+              content={post.content}
+              avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+              link={post.metadata.link || ""}
+            />
+          );
+        })}
+      </Column>
+    );
+  }
+
   if (exclude && exclude.length > 0) {
     allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
   }
