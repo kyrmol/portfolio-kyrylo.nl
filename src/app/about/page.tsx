@@ -166,19 +166,9 @@ export default function About() {
             <Text variant="label-default-s" onBackground="brand-medium">
               ABOUT
             </Text>
-            <Row gap="12" vertical="center" fillWidth>
-              <Heading className={styles.textAlign} variant="display-strong-xl" style={{ flex: 1 }}>
-                {person.name}
-              </Heading>
-              {social.find((i) => i.essential && i.link) && (
-                <IconButton
-                  href={social.find((i) => i.essential && i.link)!.link}
-                  icon={social.find((i) => i.essential && i.link)!.icon}
-                  variant="secondary"
-                  size="l"
-                />
-              )}
-            </Row>
+            <Heading className={styles.textAlign} variant="display-strong-xl">
+              {person.name}
+            </Heading>
             <Text
               className={styles.textAlign}
               variant="heading-default-l"
