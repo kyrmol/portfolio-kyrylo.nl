@@ -166,13 +166,8 @@ export default function About() {
             <Text variant="label-default-s" onBackground="brand-medium">
               ABOUT
             </Text>
-            {/* Desktop: heading alone */}
-            <Heading className={styles.textAlign} variant="display-strong-xl" s={{ hide: true }}>
-              {person.name}
-            </Heading>
-            {/* Mobile: heading + LinkedIn inline */}
-            <Row hide s={{ hide: false }} gap="12" vertical="center" fillWidth>
-              <Heading variant="display-strong-xl" style={{ flex: 1 }}>
+            <Row gap="12" vertical="center" fillWidth>
+              <Heading className={styles.textAlign} variant="display-strong-xl" style={{ flex: 1 }}>
                 {person.name}
               </Heading>
               {social.find((i) => i.essential && i.link) && (
@@ -191,38 +186,6 @@ export default function About() {
             >
               {person.role}
             </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
-                s={{ hide: true }}
-              >
-                {social
-                  .filter((item) => item.essential)
-                  .map(
-                    (item) =>
-                      item.link && (
-                        <React.Fragment key={item.name}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </React.Fragment>
-                      ),
-                  )}
-              </Row>
-            )}
           </Column>
 
           {about.intro.display && (
