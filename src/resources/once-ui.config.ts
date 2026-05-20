@@ -73,15 +73,15 @@ const fonts: FontsConfig = {
 
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
-  theme: "light", // dark | light | system
+  theme: "dark", // dark | light | system
   neutral: "gray", // sand | gray | slate | custom
   brand: "green", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   accent: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
-  solidStyle: "plastic", // flat | plastic
-  border: "playful", // rounded | playful | conservative
+  solidStyle: "flat", // flat | plastic
+  border: "conservative", // rounded | playful | conservative
   surface: "filled", // filled | translucent
-  transition: "all", // all | micro | macro
+  transition: "micro", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
 };
 
@@ -118,13 +118,13 @@ const effects: EffectsConfig = {
     colorEnd: "page-background",
   },
   dots: {
-    display: true,
-    opacity: 20,
+    display: false,
+    opacity: 0,
     size: "2",
-    color: "neutral-alpha-medium",
+    color: "brand-background-strong",
   },
   grid: {
-    display: false,
+    display: true,
     opacity: 30,
     color: "neutral-alpha-weak",
     width: "0.75rem",

@@ -58,7 +58,7 @@
 .progressPanel {
     padding: var(--static-space-16);
     border: 1px solid var(--brand-alpha-medium);
-    background: var(--brand-alpha-weak);
+    background: rgba(0, 0, 0, 0.16);
 }
 
 .contentPanel {
@@ -76,7 +76,7 @@
 .skillCard {
     padding: var(--static-space-20);
     border: 1px solid var(--neutral-alpha-medium);
-    background: var(--surface-background);
+    background: rgba(0, 0, 0, 0.18);
 }
 
 .timelineCard {
@@ -86,7 +86,7 @@
 .skillCard {
     background:
         linear-gradient(90deg, var(--brand-alpha-weak), transparent 22%),
-        var(--surface-background);
+        rgba(0, 0, 0, 0.18);
 }
 
 .hover {

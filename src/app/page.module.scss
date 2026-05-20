@@ -11,7 +11,7 @@
   border: 1px solid var(--neutral-alpha-medium);
   border-radius: var(--radius-m);
   background:
-    linear-gradient(135deg, var(--brand-alpha-weak), transparent 42%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 42%),
     var(--surface-background);
 }
 
@@ -60,7 +60,9 @@
   min-width: 0;
   padding: var(--static-space-16);
   border: 1px solid var(--neutral-alpha-medium);
-  background: var(--surface-background);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    rgba(0, 0, 0, 0.14);
 }
 
 .statusCell span {
@@ -92,7 +94,7 @@
   margin-top: var(--static-space-6);
   overflow: hidden;
   border: 1px solid var(--neutral-alpha-medium);
-  background: var(--neutral-alpha-weak);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .techTrack {
@@ -110,7 +112,7 @@
   min-height: 2.2rem;
   padding: 0 var(--static-space-12);
   border: 1px solid var(--neutral-alpha-medium);
-  background: var(--surface-background);
+  background: rgba(0, 0, 0, 0.16);
   color: var(--neutral-on-background-medium);
   font-size: 0.98rem;
   line-height: 1;
@@ -144,7 +146,7 @@
   border-radius: var(--radius-m);
   background:
     radial-gradient(circle at 50% 50%, var(--brand-alpha-weak), transparent 42%),
-    var(--neutral-alpha-weak);
+    rgba(0, 0, 0, 0.22);
 }
 
 .circuitFrame::before,
