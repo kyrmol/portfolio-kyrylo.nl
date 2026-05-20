@@ -3,6 +3,18 @@ import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 import styles from "@/components/work/Projects.module.scss";
 
+const selectedProjectSlugs = [
+  "cicd-pipeline-automation",
+  "aws-cloud-learning-lab",
+  "stichting-proconnect",
+];
+
+const hiddenTemplateSlugs = [
+  "automate-design-handovers-with-a-figma-to-code-pipeline",
+  "building-once-ui-a-customizable-design-system",
+  "simple-portfolio-builder",
+];
+
 export async function generateMetadata() {
   return Meta.generate({
     title: work.title,
@@ -38,13 +50,19 @@ export default function Work() {
           Practical projects across DevOps, cloud, secure delivery and software development.
         </Text>
       </header>
-      <Projects
-        exclude={[
-          "automate-design-handovers-with-a-figma-to-code-pipeline",
-          "building-once-ui-a-customizable-design-system",
-          "simple-portfolio-builder",
-        ]}
-      />
+      <section className={styles.projectGroup}>
+        <Text variant="label-default-s" onBackground="brand-medium">
+          SELECTED PROJECTS
+        </Text>
+        <Projects include={selectedProjectSlugs} />
+      </section>
+
+      <section className={styles.projectGroup}>
+        <Text variant="label-default-s" onBackground="brand-medium">
+          OTHER PROJECTS
+        </Text>
+        <Projects exclude={[...hiddenTemplateSlugs, ...selectedProjectSlugs]} />
+      </section>
     </Column>
   );
 }

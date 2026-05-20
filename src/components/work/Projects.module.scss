@@ -17,6 +17,15 @@
 
 .projectsList {
     gap: var(--static-space-8);
+}
+
+.projectGroup {
+    display: grid;
+    gap: var(--static-space-12);
+    margin-bottom: var(--static-space-32);
+}
+
+.projectGroup:last-child {
     margin-bottom: var(--static-space-40);
 }
 
