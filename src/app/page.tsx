@@ -53,7 +53,7 @@ export default function Home() {
           <Avatar src={person.avatar} size="xl" />
         </RevealFx>
 
-        {/* Application status pill */}
+        {/* Open to work pill */}
         <RevealFx translateY="4" delay={0.1} horizontal="center">
           <Row
             gap="8"
@@ -72,7 +72,7 @@ export default function Home() {
               background="brand-strong"
             />
             <Text variant="label-default-s" onBackground="brand-medium">
-              Currently applying at SUE B.V.
+              Open to opportunities
             </Text>
           </Row>
         </RevealFx>
