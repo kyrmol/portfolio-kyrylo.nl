@@ -164,22 +164,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.latestProjects} aria-label="Latest projects">
-        <div className={styles.latestIntro}>
-          <span>Latest projects</span>
-          <strong>Take a look at my latest projects</strong>
-        </div>
-        <a className={styles.projectLink} href="/work/cicd-pipeline-automation">
-          <span>RiskStudio</span>
-          <strong>AI Security Triage Pipeline</strong>
-          <p>AI-assisted scanner triage inside GitLab CI/CD.</p>
+      <div className={styles.latestLabel}>
+        <Text variant="label-default-s" onBackground="brand-medium">LATEST PROJECTS</Text>
+        <Text variant="heading-default-s" onBackground="neutral-weak">Take a look at my latest projects</Text>
+      </div>
+      <div className={styles.projectsGrid}>
+        <a className={styles.projectCard} href="/work/cicd-pipeline-automation">
+          <Text variant="label-default-s" onBackground="brand-medium">RiskStudio · Internship</Text>
+          <Text as="strong" variant="heading-strong-m">AI Security Triage Pipeline</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">GitLab CI/CD component that uses AI as a context-aware triage layer for security scanner findings.</Text>
+          <Text variant="label-default-s" onBackground="brand-medium" className={styles.cardArrow}>View project →</Text>
         </a>
-        <a className={styles.projectLink} href="/work/stichting-proconnect">
-          <span>Stichting ProConnect</span>
-          <strong>Public Website</strong>
-          <p>Next.js website deployed with AWS Amplify.</p>
+        <a className={styles.projectCard} href="/work/stichting-proconnect">
+          <Text variant="label-default-s" onBackground="brand-medium">Stichting ProConnect</Text>
+          <Text as="strong" variant="heading-strong-m">Public Website</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">Public website built with Next.js and deployed on AWS Amplify.</Text>
+          <Text variant="label-default-s" onBackground="brand-medium" className={styles.cardArrow}>View project →</Text>
         </a>
-      </section>
+      </div>
 
       <section className={styles.techCarousel} aria-label="Tech stack">
         <div className={styles.techTrack}>
