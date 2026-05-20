@@ -3,9 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, IconButton, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, social, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -181,11 +181,28 @@ export const Header = () => {
             horizontal="end"
             vertical="center"
             textVariant="body-default-s"
-            gap="20"
+            gap="8"
           >
             <Flex s={{ hide: true }}>
               {display.time && <TimeDisplay timeZone={person.location} />}
             </Flex>
+            {social.find((i) => i.name === "LinkedIn")?.link && (
+              <IconButton
+                href={social.find((i) => i.name === "LinkedIn")!.link}
+                icon="linkedin"
+                tooltip="LinkedIn"
+                size="s"
+                variant="ghost"
+              />
+            )}
+            <IconButton
+              href="/Kyrylo_Moloshnikov_CV.pdf"
+              download
+              icon="download"
+              tooltip="Download CV"
+              size="s"
+              variant="ghost"
+            />
           </Flex>
         </Flex>
       </Row>

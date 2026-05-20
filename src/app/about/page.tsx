@@ -166,9 +166,24 @@ export default function About() {
             <Text variant="label-default-s" onBackground="brand-medium">
               ABOUT
             </Text>
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            {/* Desktop: heading alone */}
+            <Heading className={styles.textAlign} variant="display-strong-xl" s={{ hide: true }}>
               {person.name}
             </Heading>
+            {/* Mobile: heading + LinkedIn inline */}
+            <Row hide s={{ hide: false }} gap="12" vertical="center" fillWidth>
+              <Heading variant="display-strong-xl" style={{ flex: 1 }}>
+                {person.name}
+              </Heading>
+              {social.find((i) => i.essential && i.link) && (
+                <IconButton
+                  href={social.find((i) => i.essential && i.link)!.link}
+                  icon={social.find((i) => i.essential && i.link)!.icon}
+                  variant="secondary"
+                  size="l"
+                />
+              )}
+            </Row>
             <Text
               className={styles.textAlign}
               variant="heading-default-l"
@@ -186,6 +201,7 @@ export default function About() {
                 horizontal="center"
                 fitWidth
                 data-border="rounded"
+                s={{ hide: true }}
               >
                 {social
                   .filter((item) => item.essential)
@@ -193,26 +209,15 @@ export default function About() {
                     (item) =>
                       item.link && (
                         <React.Fragment key={item.name}>
-                          <Row s={{ hide: true }}>
-                            <Button
-                              key={item.name}
-                              href={item.link}
-                              prefixIcon={item.icon}
-                              label={item.name}
-                              size="s"
-                              weight="default"
-                              variant="secondary"
-                            />
-                          </Row>
-                          <Row hide s={{ hide: false }}>
-                            <IconButton
-                              size="l"
-                              key={`${item.name}-icon`}
-                              href={item.link}
-                              icon={item.icon}
-                              variant="secondary"
-                            />
-                          </Row>
+                          <Button
+                            key={item.name}
+                            href={item.link}
+                            prefixIcon={item.icon}
+                            label={item.name}
+                            size="s"
+                            weight="default"
+                            variant="secondary"
+                          />
                         </React.Fragment>
                       ),
                   )}
