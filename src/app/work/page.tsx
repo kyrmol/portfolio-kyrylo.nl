@@ -31,7 +31,13 @@ export default function Work() {
       <Heading marginBottom="l" variant="heading-strong-xl" align="center">
         {work.title}
       </Heading>
-      <Projects />
+      <Projects
+        exclude={[
+          "automate-design-handovers-with-a-figma-to-code-pipeline",
+          "building-once-ui-a-customizable-design-system",
+          "simple-portfolio-builder",
+        ]}
+      />
     </Column>
   );
 }

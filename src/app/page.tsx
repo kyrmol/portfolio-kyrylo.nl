@@ -8,12 +8,11 @@ import {
   Row,
   Schema,
   Meta,
-  Tag,
   Icon,
   IconButton,
-  Line,
 } from "@once-ui-system/core";
 import { home, about, person, social, baseURL } from "@/resources";
+import styles from "./page.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -26,12 +25,15 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
-  const featuredSkills = about.technical.skills
-    .flatMap((s) => s.tags ?? [])
-    .slice(0, 12);
+  const linkedin = social.find((item) => item.name === "LinkedIn");
+  const featuredSkills = Array.from(
+    new Map(
+      about.technical.skills.flatMap((s) => s.tags ?? []).map((tag) => [tag.name, tag]),
+    ).values(),
+  );
 
   return (
-    <Column maxWidth="m" fillWidth horizontal="center">
+    <Column maxWidth="l" fillWidth horizontal="start">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -46,139 +48,154 @@ export default function Home() {
         }}
       />
 
-      {/* Hero */}
-      <Column fillWidth horizontal="center" gap="24" paddingY="104">
-        {/* Avatar */}
-        <RevealFx translateY="4" delay={0} horizontal="center">
-          <Avatar src={person.avatar} size="xl" />
-        </RevealFx>
+      <section className={styles.heroBand}>
+        <div className={styles.heroContent}>
+          <RevealFx translateY="4" delay={0} horizontal="start">
+            <Avatar src={person.avatar} size="l" />
+          </RevealFx>
 
-        {/* Open to work pill */}
-        <RevealFx translateY="4" delay={0.1} horizontal="center">
-          <Row
-            gap="8"
-            vertical="center"
-            padding="4"
-            paddingX="12"
-            border="brand-alpha-medium"
-            background="brand-alpha-weak"
-            radius="full"
-            style={{ backdropFilter: "blur(var(--static-space-1))" }}
-          >
+          <RevealFx translateY="4" delay={0.1} horizontal="start">
             <Row
-              width="8"
-              height="8"
-              radius="full"
-              background="brand-strong"
-            />
-            <Text variant="label-default-s" onBackground="brand-medium">
-              Open to opportunities
-            </Text>
-          </Row>
-        </RevealFx>
+              gap="8"
+              vertical="center"
+              padding="4"
+              paddingX="12"
+              border="brand-alpha-medium"
+              background="brand-alpha-weak"
+              radius="s"
+            >
+              <Row width="8" height="8" radius="full" background="brand-strong" />
+              <Text variant="label-default-s" onBackground="brand-medium">
+                Open to opportunities
+              </Text>
+            </Row>
+          </RevealFx>
 
-        {/* Name */}
-        <RevealFx translateY="4" delay={0.15} fillWidth horizontal="center">
-          <Heading align="center" variant="display-strong-xl" wrap="balance">
-            Hi, I'm {person.firstName}
-          </Heading>
-        </RevealFx>
-
-        {/* Role */}
-        <RevealFx translateY="4" delay={0.2} fillWidth horizontal="center">
-          <Text
-            align="center"
-            variant="heading-default-m"
-            onBackground="neutral-weak"
-          >
-            {person.role}
-          </Text>
-        </RevealFx>
-
-        {/* Location */}
-        <RevealFx delay={0.25} horizontal="center">
-          <Row gap="8" vertical="center">
-            <Icon name="globe" onBackground="neutral-weak" />
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              Arnhem, Netherlands
-            </Text>
-          </Row>
-        </RevealFx>
-
-        {/* Tagline */}
-        <RevealFx translateY="8" delay={0.3} fillWidth horizontal="center">
-          <Column maxWidth="s" horizontal="center">
-            <Text
-              align="center"
-              variant="body-default-l"
-              onBackground="neutral-weak"
+          <RevealFx translateY="4" delay={0.15} fillWidth horizontal="start">
+            <Heading
+              className={styles.heroTitle}
+              align="left"
+              variant="display-strong-xl"
               wrap="balance"
             >
-              {home.subline}
+              {person.name}
+            </Heading>
+          </RevealFx>
+
+          <RevealFx translateY="4" delay={0.2} fillWidth horizontal="start">
+            <Text align="left" variant="heading-default-m" onBackground="neutral-weak">
+              {person.role}
             </Text>
-          </Column>
-        </RevealFx>
+          </RevealFx>
 
-        {/* CTAs */}
-        <RevealFx delay={0.4} horizontal="center">
-          <Row gap="12" horizontal="center" wrap>
-            <Button href={about.path} variant="primary" size="m" arrowIcon>
-              About me
-            </Button>
-            <Button
-              href="/Kyrylo_Moloshnikov_CV.pdf"
-              download
-              prefixIcon="download"
-              variant="secondary"
-              size="m"
-            >
-              Download CV
-            </Button>
-          </Row>
-        </RevealFx>
+          <RevealFx delay={0.25} horizontal="start">
+            <Row gap="8" vertical="center">
+              <Icon name="globe" onBackground="brand-weak" />
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Arnhem, Netherlands
+              </Text>
+            </Row>
+          </RevealFx>
 
-        {/* Social icons */}
-        <RevealFx delay={0.5} horizontal="center">
-          <Row gap="8" horizontal="center">
-            {social
-              .filter((item) => item.link)
-              .map((item) => (
+          <RevealFx translateY="8" delay={0.3} fillWidth horizontal="start">
+            <Column maxWidth="m" horizontal="start">
+              <Text
+                align="left"
+                variant="body-default-l"
+                onBackground="neutral-weak"
+                wrap="balance"
+              >
+                {home.subline}
+              </Text>
+            </Column>
+          </RevealFx>
+
+          <RevealFx delay={0.4} horizontal="start">
+            <Row gap="12" horizontal="start" wrap>
+              <Button href={about.path} variant="primary" size="m" arrowIcon>
+                View profile
+              </Button>
+              <Button
+                href="/Kyrylo_Moloshnikov_CV.pdf"
+                download
+                prefixIcon="download"
+                variant="secondary"
+                size="m"
+              >
+                Download CV
+              </Button>
+              {linkedin?.link && (
                 <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  variant="ghost"
+                  href={linkedin.link}
+                  icon={linkedin.icon}
+                  tooltip={linkedin.name}
+                  variant="secondary"
                   size="l"
                 />
-              ))}
-          </Row>
-        </RevealFx>
-      </Column>
+              )}
+            </Row>
+          </RevealFx>
+        </div>
 
-      {/* Tech stack section */}
-      <RevealFx translateY="8" delay={0.6} fillWidth>
-        <Column fillWidth gap="20" paddingBottom="80">
-          <Row fillWidth vertical="center" gap="16">
-            <Line background="neutral-alpha-weak" />
-            <Text
-              variant="label-default-s"
-              onBackground="neutral-weak"
-              style={{ whiteSpace: "nowrap" }}
+        <div className={styles.heroVisual}>
+          <div className={styles.circuitFrame}>
+            <div className={styles.circuitHeader}>SECURE DEVOPS PIPELINE</div>
+            <div className={styles.circuitGrid}>
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className={styles.metricStack}>
+              <div>
+                <strong>CI/CD</strong>
+                <small>Secure flow</small>
+              </div>
+              <div>
+                <strong>AWS</strong>
+                <small>Cloud path</small>
+              </div>
+              <div>
+                <strong>Docker</strong>
+                <small>Runtime control</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.statusStrip} aria-label="Current focus">
+        <div className={styles.statusCell}>
+          <span>Current project</span>
+          <strong>AI triage for security scanners</strong>
+          <p>RiskStudio CI/CD component that reviews scanner findings with company context.</p>
+        </div>
+        <div className={styles.statusCell}>
+          <span>Focus</span>
+          <strong>Secure DevOps pipelines</strong>
+          <p>Reduce false positives, keep release gates useful, protect company secrets.</p>
+        </div>
+        <div className={styles.statusCell}>
+          <span>Next step</span>
+          <strong>AWS + cloud security</strong>
+          <p>Building cloud architecture knowledge while growing toward security work.</p>
+        </div>
+      </section>
+
+      <section className={styles.techCarousel} aria-label="Tech stack">
+        <div className={styles.techTrack}>
+          {[...featuredSkills, ...featuredSkills].map((tag, index) => (
+            <span
+              className={styles.techItem}
+              key={`${tag.name}-${index}`}
+              aria-hidden={index >= featuredSkills.length}
             >
-              TECH STACK
-            </Text>
-            <Line background="neutral-alpha-weak" />
-          </Row>
-          <Row wrap gap="8" horizontal="center">
-            {featuredSkills.map((tag, i) => (
-              <Tag key={i} size="l" prefixIcon={tag.icon}>
-                {tag.name}
-              </Tag>
-            ))}
-          </Row>
-        </Column>
-      </RevealFx>
+              <Icon name={tag.icon ?? "tooling"} size="xs" />
+              {tag.name}
+            </span>
+          ))}
+        </div>
+      </section>
     </Column>
   );
 }

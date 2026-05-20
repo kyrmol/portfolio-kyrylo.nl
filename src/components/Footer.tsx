@@ -1,14 +1,31 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
+"use client";
+
+import { Row, IconButton, Text } from "@once-ui-system/core";
+import { usePathname } from "next/navigation";
 import { person, social } from "@/resources";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
+    <Row
+      as="footer"
+      className={styles.footer}
+      fillWidth
+      padding="8"
+      horizontal="center"
+      background="surface"
+      data-border="conservative"
+      s={{ direction: "column" }}
+    >
       <Row
-        className={styles.mobile}
+        className={styles.footerInner}
         maxWidth="m"
         paddingY="8"
         paddingX="16"

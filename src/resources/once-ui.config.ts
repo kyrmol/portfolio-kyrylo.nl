@@ -19,7 +19,7 @@ const baseURL: string = "https://kyrylo.nl";
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
-  "/work": false,
+  "/work": true,
   "/blog": false,
   "/gallery": false,
 };
@@ -27,7 +27,7 @@ const routes: RoutesConfig = {
 const display: DisplayConfig = {
   location: true,
   time: true,
-  themeSwitcher: true,
+  themeSwitcher: false,
 };
 
 // Enable password protection on selected routes
@@ -74,19 +74,19 @@ const fonts: FontsConfig = {
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
   theme: "dark", // dark | light | system
-  neutral: "slate", // sand | gray | slate | custom
-  brand: "violet", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  neutral: "gray", // sand | gray | slate | custom
+  brand: "green", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "rounded", // rounded | playful | conservative
-  surface: "translucent", // filled | translucent
-  transition: "all", // all | micro | macro
+  border: "conservative", // rounded | playful | conservative
+  surface: "filled", // filled | translucent
+  transition: "micro", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
 };
 
 const dataStyle: DataStyleConfig = {
-  variant: "gradient", // flat | gradient | outline
+  variant: "flat", // flat | gradient | outline
   mode: "categorical", // categorical | divergent | sequential
   height: 24, // default chart height
   axis: {
@@ -101,14 +101,14 @@ const dataStyle: DataStyleConfig = {
 
 const effects: EffectsConfig = {
   mask: {
-    cursor: true,
+    cursor: false,
     x: 50,
     y: 0,
     radius: 80,
   },
   gradient: {
-    display: true,
-    opacity: 30,
+    display: false,
+    opacity: 0,
     x: 50,
     y: 0,
     width: 60,
@@ -118,17 +118,17 @@ const effects: EffectsConfig = {
     colorEnd: "page-background",
   },
   dots: {
-    display: true,
-    opacity: 20,
+    display: false,
+    opacity: 0,
     size: "2",
     color: "brand-background-strong",
   },
   grid: {
-    display: false,
-    opacity: 100,
-    color: "neutral-alpha-medium",
-    width: "0.25rem",
-    height: "0.25rem",
+    display: true,
+    opacity: 30,
+    color: "neutral-alpha-weak",
+    width: "0.75rem",
+    height: "0.75rem",
   },
   lines: {
     display: false,

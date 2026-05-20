@@ -52,7 +52,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
+                  const defaultTheme = ${JSON.stringify(style.theme)};
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
@@ -82,8 +82,7 @@ export default async function RootLayout({
                   };
                   
                   // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
+                  const resolvedTheme = resolveTheme(defaultTheme);
                   root.setAttribute('data-theme', resolvedTheme);
                   
                   // Apply any saved style overrides
@@ -155,7 +154,6 @@ export default async function RootLayout({
               }}
             />
           </RevealFx>
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
           <Header />
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">

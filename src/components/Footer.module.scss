@@ -1,7 +1,16 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.footer {
+    border-top: 1px solid var(--neutral-alpha-medium);
+    border-radius: 0;
+}
+
+.footerInner {
+    min-height: 48px;
+}
+
 @media (max-width: breakpoints.$s) {
-    .mobile {
+    .footerInner {
         text-align: center;
     }
 }

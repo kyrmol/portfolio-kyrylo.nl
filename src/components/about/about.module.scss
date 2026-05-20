@@ -1,5 +1,94 @@
 @use "../breakpoints.scss" as breakpoints;
 
+.aboutShell {
+    width: 100%;
+}
+
+.aboutGrid {
+    gap: var(--static-space-32);
+    align-items: flex-start;
+    margin: 0;
+}
+
+.profilePanel,
+.introPanel,
+.sectionPanel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: var(--radius-m);
+    background:
+        linear-gradient(135deg, var(--brand-alpha-weak), transparent 26%),
+        var(--surface-background);
+}
+
+.profilePanel::before,
+.introPanel::before,
+.sectionPanel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-top: 1px solid var(--brand-alpha-medium);
+}
+
+.sidebarStack,
+.profilePanel {
+    padding: var(--static-space-24);
+    margin-top: 0;
+}
+
+.sidebarStack {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    overflow: visible;
+}
+
+.sidebarStack::before {
+    display: none;
+}
+
+.statusRow {
+    padding: var(--static-space-8) var(--static-space-12);
+    border: 1px solid var(--neutral-alpha-medium);
+    background: var(--neutral-alpha-weak);
+}
+
+.progressPanel {
+    padding: var(--static-space-16);
+    border: 1px solid var(--brand-alpha-medium);
+    background: rgba(0, 0, 0, 0.16);
+}
+
+.contentPanel {
+    display: flex;
+    gap: var(--static-space-24);
+    max-width: 52rem;
+}
+
+.introPanel,
+.sectionPanel {
+    padding: var(--static-space-32);
+}
+
+.timelineCard,
+.skillCard {
+    padding: var(--static-space-20);
+    border: 1px solid var(--neutral-alpha-medium);
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.timelineCard {
+    border-left-color: var(--brand-alpha-strong);
+}
+
+.skillCard {
+    background:
+        linear-gradient(90deg, var(--brand-alpha-weak), transparent 22%),
+        rgba(0, 0, 0, 0.18);
+}
+
 .hover {
     transition: var(--transition-micro-medium);
 
@@ -9,11 +98,27 @@
 }
 
 @media (max-width: breakpoints.$s) {
+    .aboutGrid {
+        margin-top: 0;
+    }
+
+    .sidebarStack,
+    .profilePanel {
+        position: relative;
+        top: auto;
+        width: 100%;
+    }
+
+    .introPanel,
+    .sectionPanel {
+        padding: var(--static-space-24);
+    }
+
     .textAlign {
-        text-align: center;
+        text-align: left;
     }
 
     .blockAlign {
-        align-self: center;
+        align-self: stretch;
     }
 }

@@ -1,5 +1,10 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.position {
+    top: 0;
+    border-bottom: 1px solid var(--neutral-alpha-medium);
+}
+
 .mask {
     pointer-events: none;
     backdrop-filter: blur(0.5rem);
@@ -18,4 +23,9 @@
         transform: rotate(180deg);
         bottom: 0;
     }
+}
+
+.navShell {
+    border-radius: 0;
+    box-shadow: none;
 }

@@ -51,7 +51,7 @@ export default function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column className={styles.aboutShell} maxWidth="l">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -65,66 +65,78 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
+      <Row className={styles.aboutGrid} fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column
-            className={styles.avatar}
-            top="64"
+            className={styles.sidebarStack}
+            top="80"
             fitHeight
             position="sticky"
             s={{ position: "relative", style: { top: "auto" } }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
             gap="m"
             flex={3}
-            horizontal="center"
+            horizontal="start"
           >
-            <Avatar src={person.avatar} size="xl" />
-            <Row gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Row>
-            {person.languages && person.languages.length > 0 && (
-              <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
+            <Column className={styles.profilePanel} fillWidth gap="m" horizontal="start">
+              <Avatar src={person.avatar} size="xl" />
+              <Text variant="label-default-s" onBackground="brand-medium">
+                DEVOPS + SECURITY PROFILE
+              </Text>
+              <Heading as="h1" variant="heading-strong-l">
+                {person.name}
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {person.role}
+              </Text>
+              <Row className={styles.statusRow} gap="8" vertical="center">
+                <Icon onBackground="brand-weak" name="globe" />
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  {person.location}
+                </Text>
               </Row>
-            )}
-            <Button
-              href="/Kyrylo_Moloshnikov_CV.pdf"
-              download
-              prefixIcon="download"
-              label="Download CV"
-              size="s"
-              variant="secondary"
-              fillWidth
-            />
+              {person.languages && person.languages.length > 0 && (
+                <Row wrap gap="8">
+                  {person.languages.map((language, index) => (
+                    <Tag key={index} size="l">
+                      {language}
+                    </Tag>
+                  ))}
+                </Row>
+              )}
+              <Button
+                href="/Kyrylo_Moloshnikov_CV.pdf"
+                download
+                prefixIcon="download"
+                label="Download CV"
+                size="s"
+                variant="secondary"
+                fillWidth
+              />
+            </Column>
+            <Column className={styles.progressPanel} fillWidth gap="4">
+              <Text variant="label-default-s" onBackground="brand-medium">
+                IN PROGRESS
+              </Text>
+              <Text variant="body-strong-m">AWS Solutions Architect Associate</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Studying cloud architecture, AWS services and secure infrastructure basics.
+              </Text>
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                Target: 2026
+              </Text>
+            </Column>
+            <TableOfContents structure={structure} about={about} />
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.contentPanel} flex={9}>
           <Column
+            className={styles.introPanel}
             id={about.intro.title}
             fillWidth
             minHeight="160"
             vertical="center"
-            marginBottom="32"
           >
             {about.calendar.display && (
               <Row
@@ -151,6 +163,9 @@ export default function About() {
                 />
               </Row>
             )}
+            <Text variant="label-default-s" onBackground="brand-medium">
+              ABOUT
+            </Text>
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
             </Heading>
@@ -173,62 +188,66 @@ export default function About() {
                 data-border="rounded"
               >
                 {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
+                  .filter((item) => item.essential)
+                  .map(
+                    (item) =>
+                      item.link && (
+                        <React.Fragment key={item.name}>
+                          <Row s={{ hide: true }}>
+                            <Button
+                              key={item.name}
+                              href={item.link}
+                              prefixIcon={item.icon}
+                              label={item.name}
+                              size="s"
+                              weight="default"
+                              variant="secondary"
+                            />
+                          </Row>
+                          <Row hide s={{ hide: false }}>
+                            <IconButton
+                              size="l"
+                              key={`${item.name}-icon`}
+                              href={item.link}
+                              icon={item.icon}
+                              variant="secondary"
+                            />
+                          </Row>
+                        </React.Fragment>
+                      ),
+                  )}
               </Row>
             )}
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column className={styles.sectionPanel} textVariant="body-default-l" fillWidth gap="m">
               {about.intro.description}
             </Column>
           )}
 
           {about.work.display && (
-            <>
+            <section className={styles.sectionPanel}>
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                  <Column
+                    className={styles.timelineCard}
+                    key={`${experience.company}-${experience.role}-${index}`}
+                    fillWidth
+                  >
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
+                        {experience.role}
                       </Text>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
                     </Row>
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
+                      {experience.company}
                     </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map(
@@ -267,17 +286,22 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </section>
           )}
 
           {about.studies.display && (
-            <>
+            <section className={styles.sectionPanel}>
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
+                  <Column
+                    className={styles.timelineCard}
+                    key={`${institution.name}-${index}`}
+                    fillWidth
+                    gap="4"
+                  >
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
@@ -287,22 +311,22 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </section>
           )}
 
           {about.technical.display && (
-            <>
+            <section className={styles.sectionPanel}>
               <Heading
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="m"
               >
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column className={styles.skillCard} key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
@@ -342,7 +366,7 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </section>
           )}
         </Column>
       </Row>

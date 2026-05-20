@@ -1,0 +1,252 @@
+.heroBand {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: var(--static-space-24);
+  width: 100%;
+  min-height: min(376px, calc(100vh - 304px));
+  margin: 0;
+  padding: var(--static-space-20);
+  overflow: hidden;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: var(--radius-m);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 42%),
+    var(--surface-background);
+}
+
+.heroBand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 64%, var(--brand-alpha-weak) 64% 64.5%, transparent 64.5%);
+  opacity: 0.5;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--static-space-16);
+  min-width: 0;
+}
+
+.heroTitle {
+  overflow-wrap: anywhere;
+  font-size: clamp(3rem, 6vw, 4.4rem) !important;
+  line-height: 0.98 !important;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-8);
+  max-width: 44rem;
+}
+
+.statusStrip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--static-space-6);
+  width: 100%;
+  margin-top: var(--static-space-6);
+}
+
+.statusCell {
+  min-width: 0;
+  padding: var(--static-space-16);
+  border: 1px solid var(--neutral-alpha-medium);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    rgba(0, 0, 0, 0.14);
+}
+
+.statusCell span {
+  display: block;
+  margin-bottom: var(--static-space-8);
+  color: var(--brand-on-background-medium);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.statusCell strong {
+  display: block;
+  color: var(--neutral-on-background-strong);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.statusCell p {
+  margin: var(--static-space-8) 0 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.techCarousel {
+  width: 100%;
+  margin-top: var(--static-space-6);
+  overflow: hidden;
+  border: 1px solid var(--neutral-alpha-medium);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.techTrack {
+  display: flex;
+  gap: var(--static-space-12);
+  width: max-content;
+  padding: var(--static-space-6);
+  animation: tech-marquee 42s linear infinite;
+}
+
+.techItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--static-space-8);
+  min-height: 2.2rem;
+  padding: 0 var(--static-space-12);
+  border: 1px solid var(--neutral-alpha-medium);
+  background: rgba(0, 0, 0, 0.16);
+  color: var(--neutral-on-background-medium);
+  font-size: 0.98rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@keyframes tech-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - var(--static-space-4)));
+  }
+}
+
+.heroVisual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.circuitFrame {
+  position: relative;
+  width: min(100%, 380px);
+  aspect-ratio: 1;
+  border: 1px solid var(--brand-alpha-medium);
+  border-radius: var(--radius-m);
+  background:
+    radial-gradient(circle at 50% 50%, var(--brand-alpha-weak), transparent 42%),
+    rgba(0, 0, 0, 0.22);
+}
+
+.circuitFrame::before,
+.circuitFrame::after {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--neutral-alpha-medium);
+}
+
+.circuitFrame::before {
+  inset: 18%;
+  border-radius: var(--radius-m);
+}
+
+.circuitFrame::after {
+  right: 10%;
+  bottom: 16%;
+  width: 46%;
+  height: 32%;
+  border-left-color: var(--brand-alpha-strong);
+  border-bottom-color: var(--brand-alpha-strong);
+}
+
+.circuitHeader {
+  position: absolute;
+  top: var(--static-space-20);
+  left: var(--static-space-20);
+  color: var(--brand-on-background-medium);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.circuitGrid {
+  position: absolute;
+  inset: 28% 18% 32%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--static-space-12);
+}
+
+.circuitGrid span {
+  border: 1px solid var(--neutral-alpha-medium);
+  background: transparent;
+}
+
+.metricStack {
+  position: absolute;
+  right: var(--static-space-20);
+  bottom: var(--static-space-20);
+  display: grid;
+  gap: var(--static-space-8);
+  width: 54%;
+}
+
+.metricStack div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--static-space-12);
+  padding: var(--static-space-8) var(--static-space-12);
+  border: 1px solid var(--neutral-alpha-medium);
+  background: var(--surface-background);
+}
+
+.metricStack strong {
+  color: var(--neutral-on-background-strong);
+  font-size: 0.85rem;
+}
+
+.metricStack small {
+  color: var(--neutral-on-background-weak);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+@media (max-width: 960px) {
+  .heroBand {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: var(--static-space-24);
+  }
+
+  .heroVisual {
+    display: flex;
+  }
+
+  .circuitFrame {
+    width: 100%;
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+
+  .statusStrip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .heroBand {
+    margin-top: var(--static-space-24);
+    padding: var(--static-space-24);
+  }
+}

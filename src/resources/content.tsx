@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Kyrylo",
   lastName: "Moloshnikov",
   name: `Kyrylo Moloshnikov`,
-  role: "DevSecOps Intern · Aspiring Cloud Security Engineer",
+  role: "DevOps Intern · Software Developer",
   avatar: "/images/avatar6.jpg",
   email: "kyrmol@outlook.com",
   location: "Europe/Amsterdam", // IANA timezone for Arnhem, Netherlands
@@ -19,17 +19,10 @@ const newsletter: Newsletter = {
 };
 
 const social: Social = [
-  // Minimal social links provided in CV
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/kyrylo-moloshnikov",
-    essential: true,
-  },
-  {
-    name: "Phone",
-    icon: "phone",
-    link: "tel:+31643798373",
     essential: true,
   },
 ];
@@ -40,7 +33,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing work in web and .NET development`,
-  headline: <>Building secure software — from web applications to DevSecOps pipelines</>,
+  headline: <>Building reliable software — from web applications to secure DevOps pipelines</>,
   featured: {
     display: false,
     title: <></>,
@@ -48,8 +41,8 @@ const home: Home = {
   },
   subline: (
     <>
-      Interning at RiskStudio — securing CI/CD pipelines with SAST, SCA, and IaC scanning.
-      Building full-stack apps with Next.js and Django. Aiming for Cloud Security Engineering.
+      DevOps intern at RiskStudio, building CI/CD automation with a secure delivery focus. Growing
+      in AWS and cloud security.
     </>
   ),
 };
@@ -75,11 +68,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Software developer with a growing focus on DevSecOps and Cloud Security. Currently
-        interning at RiskStudio, where I work on integrating AI-assisted security tooling
-        into CI/CD pipelines and building full-stack features with Next.js and Django.
-        My goal is to transition into Cloud Security Engineering — combining development
-        experience with a security-first mindset.
+        Software developer with a growing focus on DevOps, CI/CD pipelines, cloud infrastructure and
+        secure delivery. Currently interning at RiskStudio, where I work on pipeline tooling and
+        full-stack features with Next.js and Django. Longer term, I want to grow toward cloud
+        security from a strong DevOps foundation. I am looking for DevOps or cloud-focused roles
+        where I can build pipelines, automate delivery and keep improving secure infrastructure.
       </>
     ),
   },
@@ -90,19 +83,19 @@ const about: About = {
       {
         company: "RiskStudio",
         timeframe: "Feb 2026 – Present",
-        role: "Software Developer (DevSecOps) Graduate Intern",
+        role: "Software Developer / DevOps Graduate Intern",
         achievements: [
           <>
-            Researching and implementing AI-assisted security controls in the GitLab CI/CD
-            pipeline: SAST, SCA, Infrastructure-as-Code scanning and secret detection.
+            Working on GitLab CI/CD pipeline improvements and automation with attention to secure
+            delivery and reliable engineering workflows.
           </>,
           <>
-            Exploring how Generative AI and LLM integrations can support automated policy
-            detection, security troubleshooting and pattern recognition.
+            Exploring how AI-assisted tooling can support pipeline checks, troubleshooting and
+            engineering workflows.
           </>,
           <>
-            Developing frontend features with Next.js and building backend services using
-            Python and Django on a SaaS cybersecurity & supply chain risk management platform.
+            Developing frontend features with Next.js and building backend services using Python and
+            Django on a SaaS risk management platform.
           </>,
         ],
         images: [],
@@ -117,12 +110,12 @@ const about: About = {
             create accounts, explore volunteer events and sign up to participate.
           </>,
           <>
-            Developed a Blazor Management Web App for admins using the MudBlazor component
-            library to manage co-workers.
+            Developed a Blazor Management Web App for admins using the MudBlazor component library
+            to manage co-workers.
           </>,
           <>
-            Explored .NET MAUI by building test mobile apps with C# and XAML; worked with GitHub
-            for version control and team workflows.
+            Explored .NET MAUI by building test mobile apps with C# and XAML; worked with GitHub for
+            version control and team workflows.
           </>,
         ],
         images: [],
@@ -136,18 +129,12 @@ const about: About = {
       {
         name: "HAN University of Applied Sciences",
         description: (
-          <>
-            Bachelor of Applied Science — Computer Science (HBO-ICT: Cloud & Cyber Security)
-          </>
+          <>Bachelor of Applied Science — Computer Science (HBO-ICT: Cloud & Cyber Security)</>
         ),
       },
       {
         name: "Astrum College",
-        description: (
-          <>
-            Secondary Vocational Education (MBO-4) — Software Development, 2023–2026
-          </>
-        ),
+        description: <>Secondary Vocational Education (MBO-4) — Software Development, 2023–2026</>,
       },
     ],
   },
@@ -156,16 +143,16 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "DevSecOps & Security",
+        title: "DevOps, Cloud & Security",
         description: <></>,
         tags: [
-          { name: "SAST" },
-          { name: "SCA" },
-          { name: "IaC Scanning" },
-          { name: "Secret Detection" },
-          { name: "GitLab CI/CD" },
+          { name: "CI/CD Pipelines", icon: "cicd" },
+          { name: "GitLab CI/CD", icon: "gitlab" },
           { name: "Docker", icon: "docker" },
-          { name: "Security" },
+          { name: "AWS", icon: "aws" },
+          { name: "Secure Delivery", icon: "security" },
+          { name: "Linux", icon: "linux" },
+          { name: "Infrastructure", icon: "infrastructure" },
         ],
         images: [],
       },
@@ -174,7 +161,7 @@ const about: About = {
         description: <></>,
         tags: [
           { name: "Python", icon: "python" },
-          { name: "Django" },
+          { name: "Django", icon: "django" },
           { name: "C#", icon: "csharp" },
           { name: "ASP.NET Core", icon: "dotnet" },
           { name: "JavaScript", icon: "javascript" },
@@ -192,7 +179,7 @@ const about: About = {
           { name: "Microsoft SQL Server", icon: "mssql" },
           { name: "Entity Framework", icon: "entityframework" },
           { name: "Git", icon: "git" },
-          { name: "Infrastructure" },
+          { name: "Infrastructure", icon: "infrastructure" },
         ],
         images: [],
       },

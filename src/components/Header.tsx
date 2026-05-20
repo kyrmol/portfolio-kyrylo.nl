@@ -67,7 +67,8 @@ export const Header = () => {
         fillWidth
         padding="8"
         horizontal="center"
-        data-border="rounded"
+        background="surface"
+        data-border="conservative"
         s={{
           position: "fixed",
         }}
@@ -77,10 +78,9 @@ export const Header = () => {
         </Row>
         <Row fillWidth horizontal="center">
           <Row
-            background="page"
-            border="neutral-alpha-weak"
-            radius="m-4"
-            shadow="l"
+            className={styles.navShell}
+            background="surface"
+            radius="s"
             padding="4"
             horizontal="center"
             zIndex={1}
