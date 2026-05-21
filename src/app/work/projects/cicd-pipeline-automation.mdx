@@ -1,6 +1,6 @@
 ---
 title: "AI Security Triage Pipeline"
-summary: "GitLab CI/CD proof of concept that uses AI as a context-aware triage layer for security scanner findings."
+summary: "GitLab CI/CD automation that adds a context-aware security triage layer to scanner findings."
 publishedAt: "2026-03-15"
 images:
   - "/images/projects/covers/cicd-pipeline.jpg"
@@ -8,14 +8,15 @@ images:
 
 ## Overview
 
-During my RiskStudio graduation internship, I am researching how AI can be integrated into the CI/CD process in a responsible way. The goal is not to replace scanners, but to add a smarter triage layer after tools such as OSV-Scanner and Semgrep.
+During my RiskStudio graduation internship, I am researching how AI can be integrated into the CI/CD process in a responsible way. The goal is not to replace scanners, but to add a smarter triage layer after tools such as OSV-Scanner and Semgrep while keeping delivery repeatable and auditable.
 
 ## Focus Areas
 
 - Designing an architecture where scanners detect issues and AI evaluates context.
-- Building a GitLab CI/CD component in Python.
+- Building a GitLab CI/CD component in Python with clear pipeline inputs and outputs.
 - Adding RiskStudio-specific rules to scanner output before AI review.
 - Creating a release gate that blocks likely real vulnerabilities and allows false positives.
+- Improving automation so security checks become part of normal engineering workflow.
 - Researching safer future deployment options for sensitive customer workspaces.
 
 ## What I Learned
@@ -26,6 +27,7 @@ This project connects secure software delivery, CI/CD automation and AI risk man
 
 - GitLab CI/CD
 - Python
+- Linux
 - OSV-Scanner
 - Semgrep
 - AI-assisted triage

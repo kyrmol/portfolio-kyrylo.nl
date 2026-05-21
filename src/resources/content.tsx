@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Kyrylo",
   lastName: "Moloshnikov",
   name: `Kyrylo Moloshnikov`,
-  role: "DevOps Intern · Software Developer",
+  role: "DevOps Engineer · Software Developer",
   avatar: "/images/avatar6.jpg",
   email: "kyrmol@outlook.com",
   location: "Europe/Amsterdam", // IANA timezone for Arnhem, Netherlands
@@ -32,8 +32,8 @@ const home: Home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing work in web and .NET development`,
-  headline: <>Building reliable software — from web applications to secure DevOps pipelines</>,
+  description: `Portfolio website showcasing DevOps, cloud and secure delivery work`,
+  headline: <>Building reliable software — from CI/CD automation to cloud infrastructure</>,
   featured: {
     display: false,
     title: <></>,
@@ -41,8 +41,8 @@ const home: Home = {
   },
   subline: (
     <>
-      DevOps intern at RiskStudio, building CI/CD automation with a secure delivery focus. Growing
-      in AWS and cloud security.
+      DevOps-focused engineer building CI/CD automation, secure delivery workflows and cloud
+      infrastructure skills. Interested in reliable platforms, Linux, networking and automation.
     </>
   ),
 };
@@ -68,11 +68,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Software developer with a growing focus on DevOps, CI/CD pipelines, cloud infrastructure and
-        secure delivery. Currently interning at RiskStudio, where I work on pipeline tooling and
-        full-stack features with Next.js and Django. Longer term, I want to grow toward cloud
-        security from a strong DevOps foundation. I am looking for DevOps or cloud-focused roles
-        where I can build pipelines, automate delivery and keep improving secure infrastructure.
+        Software developer with a strong focus on DevOps, CI/CD pipelines, cloud infrastructure,
+        Linux, networking and secure delivery. Currently interning at RiskStudio, where I work on
+        pipeline tooling and full-stack features with Next.js and Django. I am looking for DevOps,
+        cloud or platform-focused roles where I can automate delivery, improve reliability and keep
+        learning from critical infrastructure environments.
       </>
     ),
   },
@@ -88,6 +88,10 @@ const about: About = {
           <>
             Working on GitLab CI/CD pipeline improvements and automation with attention to secure
             delivery and reliable engineering workflows.
+          </>,
+          <>
+            Applying DevOps habits such as version-controlled changes, repeatable checks and
+            troubleshooting across pipeline and application code.
           </>,
           <>
             Exploring how AI-assisted tooling can support pipeline checks, troubleshooting and
@@ -143,15 +147,18 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "DevOps, Cloud & Security",
+        title: "DevOps, Cloud, Networking & Security",
         description: <></>,
         tags: [
           { name: "CI/CD Pipelines", icon: "cicd" },
           { name: "GitLab CI/CD", icon: "gitlab" },
+          { name: "Kubernetes", icon: "kubernetes" },
           { name: "Docker", icon: "docker" },
           { name: "AWS", icon: "aws" },
           { name: "Secure Delivery", icon: "security" },
           { name: "Linux", icon: "linux" },
+          { name: "Networking", icon: "infrastructure" },
+          { name: "Monitoring", icon: "tooling" },
           { name: "Infrastructure", icon: "infrastructure" },
         ],
         images: [],
@@ -161,6 +168,7 @@ const about: About = {
         description: <></>,
         tags: [
           { name: "Python", icon: "python" },
+          { name: "Bash", icon: "cicd" },
           { name: "Django", icon: "django" },
           { name: "C#", icon: "csharp" },
           { name: "ASP.NET Core", icon: "dotnet" },

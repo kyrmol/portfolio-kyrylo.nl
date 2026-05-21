@@ -139,7 +139,7 @@ export default function Home() {
 
         <div className={styles.heroVisual}>
           <div className={styles.circuitFrame}>
-            <div className={styles.circuitHeader}>SECURE DEVOPS PIPELINE</div>
+            <div className={styles.circuitHeader}>RELIABLE DEVOPS PLATFORM</div>
             <div className={styles.circuitGrid}>
               <span />
               <span />
@@ -152,12 +152,12 @@ export default function Home() {
                 <small>Secure flow</small>
               </div>
               <div>
-                <strong>AWS</strong>
-                <small>Cloud path</small>
+                <strong>Linux</strong>
+                <small>Ops base</small>
               </div>
               <div>
-                <strong>Docker</strong>
-                <small>Runtime control</small>
+                <strong>Cloud</strong>
+                <small>Infra path</small>
               </div>
             </div>
           </div>
@@ -170,15 +170,15 @@ export default function Home() {
       </div>
       <div className={styles.projectsGrid}>
         <a className={styles.projectCard} href="/work/cicd-pipeline-automation">
-          <Text variant="label-default-s" onBackground="brand-medium">RiskStudio · Internship</Text>
+          <Text variant="label-default-s" onBackground="brand-medium">RiskStudio · DevOps</Text>
           <Text as="strong" variant="heading-strong-m">AI Security Triage Pipeline</Text>
           <Text variant="body-default-s" onBackground="neutral-weak">GitLab CI/CD component that uses AI as a context-aware triage layer for security scanner findings.</Text>
           <Text variant="label-default-s" onBackground="brand-medium" className={styles.cardArrow}>View project →</Text>
         </a>
-        <a className={styles.projectCard} href="/work/stichting-proconnect">
-          <Text variant="label-default-s" onBackground="brand-medium">Stichting ProConnect</Text>
-          <Text as="strong" variant="heading-strong-m">Public Website</Text>
-          <Text variant="body-default-s" onBackground="neutral-weak">Public website built with Next.js and deployed on AWS Amplify.</Text>
+        <a className={styles.projectCard} href="/work/aws-cloud-learning-lab">
+          <Text variant="label-default-s" onBackground="brand-medium">Cloud · Networking</Text>
+          <Text as="strong" variant="heading-strong-m">AWS Cloud Learning Lab</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">Hands-on AWS, networking and reliability practice focused on secure infrastructure basics.</Text>
           <Text variant="label-default-s" onBackground="brand-medium" className={styles.cardArrow}>View project →</Text>
         </a>
       </div>
